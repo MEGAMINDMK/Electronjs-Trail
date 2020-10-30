@@ -1,0 +1,11 @@
+<script> 
+// (YYYY-MM-DD) 
+    var currentdate = new Date();     
+    var expirydate = new Date("2020-10-29"); 
+    if (currentdate.getTime() > expirydate.getTime()) 
+      //  document.write("expired"); 
+		window.location.assign("expired.html");
+    else
+       // document.write("working"); 
+	   window.location.assign("working.html");
+</script> 
