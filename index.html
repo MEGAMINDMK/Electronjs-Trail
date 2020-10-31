@@ -1,12 +1,15 @@
 <script> 
-// (YYYY-MM-DD) 
-    var currentdate = new Date();     
-  //  var expirydate = new Date("2020-10-29"); 
-    var expirydate = new Date(currentdate.getTime() + 30)
-    if (currentdate.getTime() > expirydate.getTime()) 
-      //  document.write("expired"); 
-		window.location.assign("expired.html");
-    else
-       // document.write("working"); 
-	   window.location.assign("working.html");
+let now = Math.floor(Date.now() / 1000);
+if (localStorage.getItem('trialExpire') === null) {
+    localStorage.setItem('trialExpire', now + 30 * 24 * 60 * 60)
+}
+if (now > localStorage.getItem('trialExpire')) {
+   // console.log('expired');
+   // document.write('expired');
+   window.location.assign("expired.html");
+} else {
+   // console.log('working');
+   // document.write('working');
+	window.location.assign("working.html");
+}
 </script> 
